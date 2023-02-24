@@ -20,6 +20,7 @@ def ask_for_input():
 
     return int(answer)
 
+
 def select_and_plot(data_type):
     experimental_data = get_experimental_data()
     numerical_data = get_numerical_data()
@@ -35,22 +36,22 @@ def select_and_plot(data_type):
     c_moment_n = [numerical_data[:, 8].astype(float), "$C_{M}$", "cm"]
 
     if data_type == 1:
-        plotme([alpha_e,c_lift_e], data_type)
-        plotme([alpha_e,c_moment_e], data_type)
+        plotme([alpha_e, c_lift_e], data_type)
+        plotme([alpha_e, c_moment_e], data_type)
         plotme([alpha_e, c_drag_e], data_type)
-        plotme([c_drag_e,c_lift_e], data_type)
+        plotme([c_drag_e, c_lift_e], data_type)
 
     elif data_type == 2:
         plotme([alpha_n, c_lift_n], data_type)
-        plotme([c_drag_n,c_lift_n], data_type)
-        plotme([alpha_n,c_moment_n], data_type)
+        plotme([c_drag_n, c_lift_n], data_type)
+        plotme([alpha_n, c_moment_n], data_type)
         plotme([alpha_n, c_drag_n], data_type)
 
     elif data_type == 3:
         plotus([alpha_e, c_lift_e], [alpha_n, c_lift_n])
-        plotus([alpha_e, c_moment_e], [alpha_n,c_moment_n])
+        plotus([alpha_e, c_moment_e], [alpha_n, c_moment_n])
         plotus([alpha_e, c_drag_e], [alpha_n, c_drag_n])
-        plotus([c_drag_e, c_lift_e], [c_drag_n,c_lift_n])
+        plotus([c_drag_e, c_lift_e], [c_drag_n, c_lift_n])
 
     else:
         print("Data type requested can not be analyzed")
@@ -65,6 +66,7 @@ def get_experimental_data():
             experimental_data.append(line.split())
 
     return np.array(experimental_data)
+
 
 def get_numerical_data():
     numerical_data = []
