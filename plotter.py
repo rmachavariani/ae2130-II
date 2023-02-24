@@ -14,7 +14,6 @@ def plotme(data, data_type):
 
     method_name = 'Experimental method' if data_type == 1 else 'Numerical method'
     ax.plot(data[0][0], data[1][0], marker='o', markersize=3, color='r', label=method_name)
-    # ax.plot(ndata[0][0],ndata[1][0],marker='x',markersize=3,color='b',label='Numerical method')
     plt.grid(linestyle='--', linewidth=0.5)
 
     plt.legend(bbox_to_anchor=(1.05, 1.04), shadow=True)
@@ -37,7 +36,7 @@ def plotus(edata, ndata):
     ax.spines['bottom'].set_position('zero')
 
     ax.plot(edata[0][0], edata[1][0], marker='o', markersize=3, color='r', label='Experimental method')
-    # ax.plot(ndata[0][0],ndata[1][0],marker='x',markersize=3,color='b',label='Numerical method')
+    ax.plot(ndata[0][0],ndata[1][0],marker='x',markersize=3,color='b',label='Numerical method')
     plt.grid(linestyle='--', linewidth=0.5)
 
     plt.legend(bbox_to_anchor=(1.05, 1.04), shadow=True)
@@ -48,4 +47,4 @@ def plotus(edata, ndata):
 
     plt.show()
     plt.tight_layout()
-    fig.savefig('cd-alpha/exp-polar-alpha-cd' + '.png', dpi=1000, bbox_inches='tight')
+    fig.savefig(f'polars/combined-polar-{edata[0][2]}-{edata[1][2]}' + '.png', dpi=1000, bbox_inches='tight')
